@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WeatherApp.Models
 {
-    public class CoordModel
+    public class RainModel
     {
-        public double lon { get; set; }
-        public double lat { get; set; }
+        [JsonPropertyName("1h")]
+        public double OneHour { get; set; }
     }
 }

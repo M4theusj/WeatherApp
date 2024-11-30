@@ -8,7 +8,7 @@ namespace WeatherApp.Models
 {
     public class WindModel
     {
-        public double speed;
-        public int deg;
+        public double speed { get; set; }
+        public int deg { get; set; }
     }
 }

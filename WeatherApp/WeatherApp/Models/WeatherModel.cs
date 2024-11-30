@@ -8,9 +8,9 @@ namespace WeatherApp.Models
 {
     public class WeatherModel
     {
-        public int id;
-        public string main;
-        public string description;
-        public string icon;
+        public int id { get; set; }
+        public string main { get; set; }
+        public string description { get; set; }
+        public string icon { get; set; }
     }
 }
