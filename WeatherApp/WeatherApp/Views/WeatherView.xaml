@@ -2,12 +2,113 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApp.Views.WeatherView"
-             Title="WeatherView">
-    <VerticalStackLayout>
-        <VerticalStackLayout Spacing="10">
-            <Label Text="Digite o nome da cidade que afim consultar o clima" />
-            <Entry Placeholder="Digite a cidade" Keyboard="Text" Text="{Binding Name}" />
-            <Button Text="Confirmar" Command="{Binding LoadCityWeatherCommand}" CommandParameter="{Binding Name}" />
+             Title=""
+             BackgroundColor="#1F1F1F">
+    <VerticalStackLayout Padding="20" Spacing="20">
+            <Grid RowDefinitions="Auto, Auto, Auto, Auto" ColumnDefinitions="2*, 3*">
+                <Grid Grid.ColumnSpan="2" Padding="0,0,0,20">
+                    <Border Stroke="#3E3E3E" StrokeThickness="2" BackgroundColor="#303030" HeightRequest="44" StrokeShape="RoundRectangle 5">
+                        <Grid ColumnSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Entry 
+                                Grid.Column="0"
+                                Placeholder="Digite o nome da cidade"
+                                BackgroundColor="Transparent"
+                                TextColor="#FFFFFF"
+                                FontFamily="JejuGothic-Regular"
+                                PlaceholderColor="#6B6B6B"
+                                Margin="10, 0" />
+                            <Button 
+                                Grid.Column="1"
+                                Text="Confirmar"
+                                BackgroundColor="#3E3E3E"
+                                TextColor="#9E9E9E"
+                                Padding="20, 0"
+                                FontFamily="JejuGothic-Regular"
+                                VerticalOptions="Center"
+                                Margin="5, 0, 0, 0"
+                                CornerRadius="0" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Label 
+                Text="Clima"
+                FontFamily="JejuGothic-Regular"
+                TextColor="#9E9E9E"
+                Margin="5, -30, 0, 0"
+                >
+
+            </Label>
+            <Frame
+                BackgroundColor="#2E2E2E"
+                Padding="15"
+                Margin="0,-20,0,0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                CornerRadius="0"
+                BorderColor="Transparent"
+                HasShadow="False"
+                WidthRequest="250"
+                HeightRequest="280">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="10">
+                    <Image
+                        Grid.Row="0"
+                        Source="a50n.png"
+                        WidthRequest="150"
+                        HeightRequest="120"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+
+                    <Frame
+                        Grid.Row="1"
+                        BackgroundColor="#22854B"
+                        HorizontalOptions="Center"
+                        Padding="5, 2"
+                        CornerRadius="0"
+                        WidthRequest="180"
+                        HeightRequest="40"
+                        Margin="0, -20, 0, 0"
+                        BorderColor="#18762C">
+                        <Label
+                            Text="Clouds"
+                            TextColor="White"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontFamily="JejuGothic-Regular" />
+                    </Frame>
+
+                    <Frame
+                        Grid.Row="2"
+                        BackgroundColor="#383838"
+                        HorizontalOptions="Center"
+                        Padding="5, 2"
+                        CornerRadius="0"
+                        WidthRequest="180"
+                        BorderColor="Transparent">
+                        <Label
+                            Text="Lots of Clouds"
+                            TextColor="White"
+                            FontSize="14"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontFamily="JejuGothic-Regular" />
+                    </Frame>
+
+                    <Label
+                        Grid.Row="3"
+                        Text="221"
+                        TextColor="#919191"
+                        Margin="0, 35, 0, 0"
+                        FontSize="18"
+                        HorizontalOptions="End"
+                        VerticalOptions="End"
+                        FontFamily="JejuGothic-Regular" />
+                </Grid>
+            </Frame>
         </VerticalStackLayout>
-    </VerticalStackLayout>
 </ContentPage>
