@@ -4,7 +4,10 @@ using Android.OS;
 
 namespace WeatherApp
 {
-    [Activity(Theme = "@style/Maui.SplashTheme", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density)]
+    [Activity(Theme = "@style/Maui.SplashTheme",
+              MainLauncher = true,
+              ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode,
+              ScreenOrientation = ScreenOrientation.Landscape)]
     public class MainActivity : MauiAppCompatActivity
     {
     }
