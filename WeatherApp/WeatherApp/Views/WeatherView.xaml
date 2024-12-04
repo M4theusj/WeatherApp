@@ -167,6 +167,126 @@
                 </Frame>
             </Grid>
 
+            <Grid 
+                Grid.Column="1"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Margin="20, 10, 0, 0">
+                <Frame
+                    BackgroundColor="#2C2C2C"
+                    Padding="15"
+                    CornerRadius="0"
+                    BorderColor="#2E2E2E"
+                    HasShadow="False"
+                    MaximumWidthRequest="230"
+                    WidthRequest="230"
+                    MaximumHeightRequest="90">
+                    <Grid 
+                        RowDefinitions="Auto, Auto" 
+                        ColumnSpacing="8"
+                        ColumnDefinitions="*, *, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Cidade" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Fuso-Horário" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="Visibilidade" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+
+                        <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="São Paulo" TextColor="#FFF" HorizontalOptions="Center" FontSize="8.5"/>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="-3" TextColor="#FFF" HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="10km" TextColor="#FFF" HorizontalOptions="Center"/>
+                        </Frame>
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <Grid 
+                Grid.Column="1"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                Margin="20, 10, 0, 0">
+
+                <Grid ColumnDefinitions="Auto, Auto" ZIndex="1" BackgroundColor="Transparent" VerticalOptions="Start" HorizontalOptions="Start">
+                    <Label
+                        Text="Outros"
+                        TextColor="#9E9E9E"
+                        FontSize="14"
+                        FontFamily="JejuGothic-Regular"
+                        HorizontalOptions="Start"
+                        TranslationX="-265"
+                        Margin="0, -20, 0, 0"/>
+
+                    <Label
+                        Text="Nuvens / Chuva"
+                        TextColor="#9E9E9E"
+                        FontSize="14"
+                        FontFamily="JejuGothic-Regular"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        TranslationX="-40"
+                        Margin="0, -20, 0, 0"/>
+                </Grid>
+
+                <Frame
+                    BackgroundColor="#2C2C2C"
+                    Padding="15"
+                    CornerRadius="0"
+                    BorderColor="#2E2E2E"
+                    HasShadow="False"
+                    MaximumWidthRequest="230"
+                    WidthRequest="230"
+                    MaximumHeightRequest="90">
+
+                    <Grid 
+                        RowDefinitions="Auto, Auto" 
+                        ColumnSpacing="8"
+                        ColumnDefinitions="*, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Nebulosidade" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Chuva" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+
+                        <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="74%" TextColor="#FFF" HorizontalOptions="Center"/>
+                        </Frame>
+
+                        <Frame
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Padding="0"
+                            Margin="0"
+                            HasShadow="False"
+                            CornerRadius="3"
+                            BackgroundColor="#2F2F2F"
+                            BorderColor="Transparent"
+                            HeightRequest="30"
+                            WidthRequest="100">
+
+                            <Grid ColumnDefinitions="Auto, *" RowDefinitions="*">
+                                <Frame 
+                                    BackgroundColor="#22854B"
+                                    CornerRadius="0"
+                                    Padding="0"
+                                    BorderColor="#18762C"
+                                    HasShadow="False">
+                                    <Label Text="1h" TextColor="#FFF" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                </Frame>
+
+                                <Frame 
+                                    Grid.Column="1" 
+                                    BackgroundColor="#383838" 
+                                    BorderColor="#2F2F2F"
+                                    CornerRadius="0" 
+                                    Padding="0" 
+                                    HasShadow="False">
+                                    <Label Text="74%" TextColor="#FFF" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+
+                    </Grid>
+                </Frame>
+            </Grid>
         </Grid>
 
     </VerticalStackLayout>
