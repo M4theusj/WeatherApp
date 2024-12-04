@@ -174,7 +174,7 @@
                 Margin="20, 10, 0, 0">
                 <Frame
                     BackgroundColor="#2C2C2C"
-                    Padding="15"
+                    Padding="10"
                     CornerRadius="0"
                     BorderColor="#2E2E2E"
                     HasShadow="False"
@@ -212,26 +212,26 @@
                     <Label
                         Text="Outros"
                         TextColor="#9E9E9E"
-                        FontSize="14"
+                        FontSize="10"
                         FontFamily="JejuGothic-Regular"
                         HorizontalOptions="Start"
                         TranslationX="-265"
-                        Margin="0, -20, 0, 0"/>
+                        Margin="0, -15, 0, 0"/>
 
                     <Label
                         Text="Nuvens / Chuva"
                         TextColor="#9E9E9E"
-                        FontSize="14"
+                        FontSize="10"
                         FontFamily="JejuGothic-Regular"
                         Grid.Column="1"
                         HorizontalOptions="Start"
-                        TranslationX="-40"
-                        Margin="0, -20, 0, 0"/>
+                        TranslationX="-30"
+                        Margin="0, -15, 0, 0"/>
                 </Grid>
 
                 <Frame
                     BackgroundColor="#2C2C2C"
-                    Padding="15"
+                    Padding="10"
                     CornerRadius="0"
                     BorderColor="#2E2E2E"
                     HasShadow="False"
@@ -284,6 +284,101 @@
                             </Grid>
                         </Frame>
 
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <Grid 
+                ColumnDefinitions="2*, 2*" 
+                BackgroundColor="Transparent" 
+                VerticalOptions="End" 
+                HorizontalOptions="End"
+                Grid.Column="1"
+                ZIndex="1"
+                Margin="0">
+                <Label
+                    Text="Localização"
+                    TextColor="#9E9E9E"
+                    FontSize="10"
+                    FontFamily="JejuGothic-Regular"
+                    TranslationX="-387"
+                    TranslationY="-70"
+                    Margin="0, 0, 10, 0"/>
+
+                <Label
+                    Text="Vento"
+                    TextColor="#9E9E9E"
+                    FontSize="10"
+                    FontFamily="JejuGothic-Regular"
+                    Grid.Column="1"
+                    TranslationX="-192"
+                    TranslationY="-70"
+                    Margin="10, 0, 0, 0"/>
+            </Grid>
+
+
+            <Grid 
+                Grid.Column="2"
+                VerticalOptions="End"
+                HorizontalOptions="Start"
+                Margin="20, 10, 0, 0">
+                <Frame
+                    BackgroundColor="#2C2C2C"
+                    Padding="10"
+                    CornerRadius="0"
+                    BorderColor="#2E2E2E"
+                    HasShadow="False"
+                    MaximumWidthRequest="230"
+                    WidthRequest="230"
+                    MaximumHeightRequest="90">
+                    <Grid 
+                        RowDefinitions="Auto, Auto" 
+                        ColumnSpacing="8"
+                        ColumnDefinitions="*, *, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="País" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Nascer do Sol" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="Pôr do Sol" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+
+                        <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="BR" TextColor="#FFF" HorizontalOptions="Center" />
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="6:20" TextColor="#FFF" HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="19:30" TextColor="#FFF" HorizontalOptions="Center"/>
+                        </Frame>
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <Grid 
+                Grid.Column="2"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                Margin="20, 10, 0, 0">
+                <Frame
+                    BackgroundColor="#2C2C2C"
+                    Padding="10"
+                    CornerRadius="0"
+                    BorderColor="#2E2E2E"
+                    HasShadow="False"
+                    MaximumWidthRequest="230"
+                    WidthRequest="230"
+                    MaximumHeightRequest="90">
+                    <Grid 
+                        RowDefinitions="Auto, Auto" 
+                        ColumnSpacing="8"
+                        ColumnDefinitions="*, *">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Velocidade (km/h)" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Direção" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+
+                        <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="18,5" TextColor="#FFF" HorizontalOptions="Center"/>
+                        </Frame>
+                        <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
+                            <Label Text="Sudeste" TextColor="#FFF" HorizontalOptions="Center"/>
+                        </Frame>
                     </Grid>
                 </Frame>
             </Grid>
