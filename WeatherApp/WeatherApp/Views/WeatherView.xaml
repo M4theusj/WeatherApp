@@ -35,13 +35,27 @@
                 </Border>
             </Grid>
         </Grid>
-        <Label 
-            Text="Clima"
-            FontFamily="JejuGothic-Regular"
-            TextColor="#9E9E9E"
-            Margin="5, -30, 0, 0" />
 
-        <Grid ColumnDefinitions="*, *" Padding="0,-20,0,0" Margin="0, 5, 0, 0">
+        <Grid ColumnDefinitions="0.5*, 0.9*" Margin="0, -25, 0, 0">
+            <Label
+                Text="Clima"
+                TextColor="#9E9E9E"
+                FontSize="14"
+                FontFamily="JejuGothic-Regular"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"/>
+
+            <Label
+                Text="Main"
+                TextColor="#9E9E9E"
+                FontSize="14"
+                FontFamily="JejuGothic-Regular"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Grid.Column="1"/>
+        </Grid>
+
+        <Grid ColumnDefinitions="Auto, Auto" Padding="0,-20,0,0" Margin="0, 5, 0, 0">
             <Frame
                 BackgroundColor="#2C2C2C"
                 Padding="15"
@@ -51,7 +65,7 @@
                 BorderColor="#2E2E2E"
                 HasShadow="False"
                 WidthRequest="250"
-                HeightRequest="280">
+                HeightRequest="270">
                 <Grid RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="10">
                     <Image
                         Grid.Row="0"
@@ -98,7 +112,7 @@
                         Grid.Row="3"
                         Text="221"
                         TextColor="#919191"
-                        Margin="0, 35, 0, 0"
+                        Margin="0, 25, 0, 0"
                         FontSize="18"
                         HorizontalOptions="End"
                         VerticalOptions="End"
@@ -106,28 +120,24 @@
                 </Grid>
             </Frame>
 
-            <Label 
-                Text="Main"
-                FontFamily="JejuGothic-Regular"
-                TextColor="#9E9E9E"
-                Grid.Column="0"
-                Margin="280, -22, 0, 0" />
-
-            <Grid Grid.Column="1" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" Margin="-200, 0, 0, 0">
+            <Grid 
+                Grid.Column="1"
+                VerticalOptions="Start"
+                HorizontalOptions="StartAndExpand"
+                Margin="20, 0, 0, 0">
                 <Frame
                     BackgroundColor="#2C2C2C"
-                    Padding="10"
-                    HorizontalOptions="Fill"
-                    VerticalOptions="Start"
+                    Padding="15"
                     CornerRadius="0"
                     BorderColor="#2E2E2E"
                     HasShadow="False"
-                    MaximumWidthRequest="400">
+                    MaximumWidthRequest="500"
+                    WidthRequest="500"
+                    MaximumHeightRequest="90">
                     <Grid 
                         RowDefinitions="Auto, Auto" 
                         ColumnSpacing="8"
                         ColumnDefinitions="*, *, *, *, *, *">
-
                         <Label Grid.Row="0" Grid.Column="0" Text="Temperatura" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
                         <Label Grid.Row="0" Grid.Column="1" Text="Sensação" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
                         <Label Grid.Row="0" Grid.Column="2" Text="Temp Max" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
@@ -158,5 +168,6 @@
             </Grid>
 
         </Grid>
+
     </VerticalStackLayout>
 </ContentPage>
