@@ -139,7 +139,6 @@ namespace WeatherApp.ViewModel
                     Nuvens = clima.main;
 
                     Descricao = clima.description;
-                    await Application.Current.MainPage.DisplayAlert("AAAA", clima.icon, "ok");
 
                     Icone = $"https://openweathermap.org/img/wn/{clima.icon}@2x.png";
 
