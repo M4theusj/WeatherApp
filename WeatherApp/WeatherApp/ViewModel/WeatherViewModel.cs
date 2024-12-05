@@ -10,6 +10,7 @@ using System.Windows.Input;
 using WeatherApp.Services;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace WeatherApp.ViewModel
 {
@@ -20,6 +21,15 @@ namespace WeatherApp.ViewModel
         public WeatherViewModel()
         {
             _weatherService = new WeatherService();
+
+            Icone = "joy.png";
+            Nuvens = "clima";
+            Descricao = "descrição";
+            NSol = "00:00";
+            PSol = "00:00";
+            Direcao = "direção";
+
+
         }
 
         [ObservableProperty]
