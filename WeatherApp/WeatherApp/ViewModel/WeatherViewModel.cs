@@ -23,40 +23,127 @@ namespace WeatherApp.ViewModel
         }
 
         [ObservableProperty]
-        private ObservableCollection<WeatherAppMainModel> _weather;
+        private double _temperatura;
         [ObservableProperty]
-        private MainModel _mainModel;
+        private double _sensacao;
         [ObservableProperty]
-        private WindModel _windModel;
+        private double _tempMax;
         [ObservableProperty]
-        private CloudsModel _cloudModel;
+        private double _tempMin;
         [ObservableProperty]
-        private RainModel _rainModel;
+        private double _pressao;
         [ObservableProperty]
-        private SysModel _sysModel;
+        private double _humidade;
         [ObservableProperty]
-        private WeatherModel _weatherModel;
+        private string _name;
         [ObservableProperty]
-        private string name;
+        private int _visibilidade;
         [ObservableProperty]
-        private string _visibility;
+        private int _fuso;
+        [ObservableProperty]
+        private int _nebulosidade;
+        [ObservableProperty]
+        private int _chuva;
+        [ObservableProperty]
+        private string _pais;
+        [ObservableProperty]
+        private string _nSol;
+        [ObservableProperty]
+        private string _pSol;
+        [ObservableProperty]
+        private double _Vento;
+        [ObservableProperty]
+        private string _Direcao;
+        [ObservableProperty]
+        private int _id;
+        [ObservableProperty]
+        private string _nuvens;
+        [ObservableProperty]
+        private string _descricao;
+        [ObservableProperty]
+        private string _icone;
+
+        private string GetWindDirection(double degrees)
+        {
+            var directions = new Dictionary<(int, int), string>
+            {
+                {(0, 45), "Norte"},
+                {(45, 90), "Nordeste"},
+                {(90, 135), "Leste"},
+                {(135, 180), "Sudeste"},
+                {(180, 225), "Sul"},
+                {(225, 270), "Sudoeste"},
+                {(270, 315), "Oeste"},
+                {(315, 360), "Noroeste"}
+            };
+
+            foreach (var direction in directions)
+            {
+                if (degrees >= direction.Key.Item1 && degrees < direction.Key.Item2)
+                    return direction.Value;
+            }
+
+            return "?";
+        }
 
         [RelayCommand]
         public async Task LoadCityWeather(string cityName)
         {
-            Debug.WriteLine($"Parâmetro recebido: {cityName}");
             try
             {
                 var data = await _weatherService.GetWeatherResponse(cityName);
 
                 if (data != null)
                 {
-                    MainModel = data.main;
-                    WindModel = data.wind;
-                    CloudModel = data.clouds;
-                    Name = data.name;
+                    Temperatura = data.main.temp - 273.15;
+                    Sensacao = data.main.feels_like;
+                    TempMax = data.main.temp_max;
+                    TempMin = data.main.temp_min;
+                    Pressao = data.main.pressure;
+                    Humidade = data.main.humidity;
 
-                    await Application.Current.MainPage.DisplayAlert("Weather", $"Cidade: {data.name}, Clima: {data.weather.FirstOrDefault()?.description}", "ok");
+                    Name = data.name;
+                    Visibilidade = data.visibility / 1000;
+                    Fuso = data.timezone / 3600;
+
+                    Nebulosidade = data.clouds.all;
+
+                    if (data.rain != null && data.rain.OneHour > 0)
+                    {
+                        Chuva = (int)data.rain.OneHour;
+                    }
+                    else
+                    {
+                        Chuva = 0;
+                    }
+
+                    Pais = data.sys.country;
+
+                    int NascerH = (data.sys.sunrise / 3600) % 24;
+                    int NascerM = (data.sys.sunrise % 3600) / 60;
+
+                    int PorH = (data.sys.sunset / 3600) % 24;
+                    int PorM = (data.sys.sunset % 3600) / 60;
+
+                    NSol = $"{NascerH:D2}:{NascerM:D2}";
+                    PSol = $"{PorH:D2}:{PorM:D2}";
+
+
+                    Vento = data.wind.speed;
+                    Direcao = GetWindDirection(data.wind.deg);
+
+                    var clima = data.weather[0];
+
+                    Id = clima.id;
+
+                    Nuvens = clima.main;
+
+                    Descricao = clima.description;
+                    await Application.Current.MainPage.DisplayAlert("AAAA", clima.icon, "ok");
+
+                    Icone = $"https://openweathermap.org/img/wn/{clima.icon}@2x.png";
+
+
                 }
                 else
                 {

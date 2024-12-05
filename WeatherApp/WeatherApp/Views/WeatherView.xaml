@@ -20,6 +20,7 @@
                             TextColor="#FFFFFF"
                             FontFamily="JejuGothic-Regular"
                             PlaceholderColor="#6B6B6B"
+                            Text="{Binding Name}"
                             Margin="10, 0" />
                         <Button 
                             Grid.Column="1"
@@ -30,7 +31,9 @@
                             FontFamily="JejuGothic-Regular"
                             VerticalOptions="Center"
                             Margin="5, 0, 0, 0"
-                            CornerRadius="0" />
+                            CornerRadius="0"
+                            Command="{Binding LoadCityWeatherCommand}" 
+                            CommandParameter="{Binding Name}"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -69,7 +72,7 @@
                 <Grid RowDefinitions="Auto, Auto, Auto, Auto" RowSpacing="10">
                     <Image
                         Grid.Row="0"
-                        Source="a50n.png"
+                        Source="{Binding Icone}"
                         WidthRequest="150"
                         HeightRequest="120"
                         HorizontalOptions="Center"
@@ -85,7 +88,7 @@
                         Margin="0, -20, 0, 0"
                         BorderColor="#18762C">
                         <Label
-                            Text="Clouds"
+                            Text="{Binding Nuvens}"
                             TextColor="White"
                             FontSize="16"
                             HorizontalOptions="Center"
@@ -101,7 +104,7 @@
                         WidthRequest="180"
                         BorderColor="Transparent">
                         <Label
-                            Text="Lots of Clouds"
+                            Text="{Binding Descricao}"
                             TextColor="White"
                             FontSize="14"
                             HorizontalOptions="Center"
@@ -110,7 +113,7 @@
                     </Frame>
                     <Label
                         Grid.Row="3"
-                        Text="221"
+                        Text="{Binding Id}"
                         TextColor="#919191"
                         Margin="0, 25, 0, 0"
                         FontSize="18"
@@ -142,27 +145,28 @@
                         <Label Grid.Row="0" Grid.Column="1" Text="Sensação" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
                         <Label Grid.Row="0" Grid.Column="2" Text="Temp Max" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
                         <Label Grid.Row="0" Grid.Column="3" Text="Temp Min" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
-                        <Label Grid.Row="0" Grid.Column="4" Text="Pressão" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
+                        <Label Grid.Row="0" Grid.Column="4" Text="Pressão (hpa)" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
                         <Label Grid.Row="0" Grid.Column="5" Text="Humidade" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
 
                         <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="28°C" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Temperatura, StringFormat='{0:F1}°C'}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="30°C" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Sensacao, StringFormat='{0:F1}°C'}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="29°C" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding TempMax, StringFormat='{0:F1}°C'}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="3" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="29°C" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding TempMin, StringFormat='{0:F1}°C'}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="4" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="1013" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Pressao}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="5" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="82" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Humidade, StringFormat='{0:F0}%'}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
+
                     </Grid>
                 </Frame>
             </Grid>
@@ -190,13 +194,13 @@
                         <Label Grid.Row="0" Grid.Column="2" Text="Visibilidade" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
 
                         <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="São Paulo" TextColor="#FFF" HorizontalOptions="Center" FontSize="8.5"/>
+                            <Label Text="{Binding Name}" TextColor="#FFF" HorizontalOptions="Center" FontSize="8.5"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="-3" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Fuso}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="10km" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Visibilidade, StringFormat='{0:F0}km'}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                     </Grid>
                 </Frame>
@@ -247,7 +251,7 @@
                         <Label Grid.Row="0" Grid.Column="1" Text="Chuva" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
 
                         <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="74%" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Nebulosidade, StringFormat='{0:F0}%'}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
 
                         <Frame
@@ -279,7 +283,7 @@
                                     CornerRadius="0" 
                                     Padding="0" 
                                     HasShadow="False">
-                                    <Label Text="74%" TextColor="#FFF" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    <Label Text="{Binding Chuva, StringFormat='{0:F0}mm'}" TextColor="#FFF" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
                                 </Frame>
                             </Grid>
                         </Frame>
@@ -340,13 +344,13 @@
                         <Label Grid.Row="0" Grid.Column="2" Text="Pôr do Sol" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
 
                         <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="BR" TextColor="#FFF" HorizontalOptions="Center" />
+                            <Label Text="{Binding Pais}" TextColor="#FFF" HorizontalOptions="Center" />
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="6:20" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding NSol}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="19:30" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding PSol}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                     </Grid>
                 </Frame>
@@ -374,10 +378,10 @@
                         <Label Grid.Row="0" Grid.Column="1" Text="Direção" TextColor="#9E9E9E" HorizontalOptions="Center" FontSize="8"/>
 
                         <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="18,5" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Vento}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                         <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#2F2F2F" CornerRadius="0" Padding="5" HasShadow="False" BorderColor="#2F2F2F">
-                            <Label Text="Sudeste" TextColor="#FFF" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Direcao}" TextColor="#FFF" HorizontalOptions="Center"/>
                         </Frame>
                     </Grid>
                 </Frame>
