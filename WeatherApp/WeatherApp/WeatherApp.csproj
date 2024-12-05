@@ -59,6 +59,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\JejuGothic-Regular.ttf" />
 	  <None Remove="Resources\Images\a50n.png" />
+	  <None Remove="Resources\Images\joy.png" />
 	</ItemGroup>
 
 	<ItemGroup>
