@@ -112,7 +112,14 @@ namespace WeatherApp.ViewModel
                     Pressao = data.main.pressure;
                     Humidade = data.main.humidity;
 
-                    Name = data.name;
+                    string cidade = data.name;
+                    int maiusculas = cidade.Count(char.IsUpper);
+
+                    if (maiusculas >= 2)
+                    {
+                        Name = new string(cidade.Where(char.IsUpper).ToArray());
+                    }
+
                     Visibilidade = data.visibility / 1000;
                     Fuso = data.timezone / 3600;
 
