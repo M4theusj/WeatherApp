@@ -96,9 +96,9 @@ namespace WeatherApp.ViewModel
                 if (data != null)
                 {
                     Temperatura = data.main.temp - 273.15;
-                    Sensacao = data.main.feels_like;
-                    TempMax = data.main.temp_max;
-                    TempMin = data.main.temp_min;
+                    Sensacao = data.main.feels_like - 273.15;
+                    TempMax = data.main.temp_max - 273.15;
+                    TempMin = data.main.temp_min - 273.15;
                     Pressao = data.main.pressure;
                     Humidade = data.main.humidity;
 
